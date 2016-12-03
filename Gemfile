@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -30,19 +30,55 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# bundle exec rake bower:install
+gem 'bower-rails', '~> 0.9.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # export schema info to Models
+  gem 'annotate'
+
+  # Test
+  gem 'rspec-rails'
+  gem 'guard-rspec', require: false
+
+  # make test data
+  gem 'factory_girl_rails'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # Access an IRB console on exception pages
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # To debuging tool
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+  gem 'better_errors'
+
+  # debug views
+  gem 'xray-rails'
+
+  # export ER maps
+  gem 'rails-erd'
+
+  # check N+1
+  gem 'bullet'
+
+  # Coding lint check
+  gem 'rubocop', require: false
+  gem 'guard-rubocop', require: false
 end
+
+group :test do
+  gem 'database_cleaner', '~> 1.0.1'
+end
+
+gem 'react-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
