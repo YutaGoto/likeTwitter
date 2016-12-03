@@ -10,6 +10,6 @@
 #
 
 class Follow < ApplicationRecord
-  belongs_to :follow, class_name: "User", foreign_key: user_id
-  belongs_to :follower, class_name: "USer", foreign_key: user_id
+  belongs_to :follow, class_name: "User", foreign_key: :user_id
+  belongs_to :follower, class_name: "User", foreign_key: :user_id
 end
